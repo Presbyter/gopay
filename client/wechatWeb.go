@@ -42,6 +42,7 @@ func (this *WechatWebClient) Pay(charge *common.Charge) (map[string]string, erro
 	m["notify_url"] = charge.CallbackURL
 	if charge.TradeType == "NATIVE" {
 		m["trade_type"] = "NATIVE"
+		m["product_id"] = charge.ProductId
 	} else {
 		m["trade_type"] = "JSAPI"
 		m["openid"] = charge.OpenID

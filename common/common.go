@@ -23,6 +23,7 @@ type Charge struct {
 	CheckName   bool    `json:"check_name,omitempty"`
 	ReUserName  string  `json:"re_user_name,omitempty"`
 	TradeType   string  `json:"trade_type,omitempty"`
+	ProductId   string  `json:"product_id,omitempty"`
 }
 
 //PayCallback 支付返回
