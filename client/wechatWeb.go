@@ -3,9 +3,10 @@ package client
 import (
 	"errors"
 	"fmt"
-	"github.com/milkbobo/gopay/common"
-	"github.com/milkbobo/gopay/util"
 	"time"
+
+	"github.com/Presbyter/gopay/common"
+	"github.com/Presbyter/gopay/util"
 )
 
 var defaultWechatWebClient *WechatWebClient
@@ -39,8 +40,12 @@ func (this *WechatWebClient) Pay(charge *common.Charge) (map[string]string, erro
 	m["total_fee"] = WechatMoneyFeeToString(charge.MoneyFee)
 	m["spbill_create_ip"] = util.LocalIP()
 	m["notify_url"] = charge.CallbackURL
-	m["trade_type"] = "JSAPI"
-	m["openid"] = charge.OpenID
+	if charge.TradeType == "NATIVE" {
+		m["trade_type"] = "NATIVE"
+	} else {
+		m["trade_type"] = "JSAPI"
+		m["openid"] = charge.OpenID
+	}
 	m["sign_type"] = "MD5"
 
 	sign, err := WechatGenSign(this.Key, m)
@@ -66,6 +71,10 @@ func (this *WechatWebClient) Pay(charge *common.Charge) (map[string]string, erro
 		return map[string]string{}, errors.New("WechatWeb: " + err.Error())
 	}
 	c["paySign"] = sign2
+
+	if charge.TradeType == "NATIVE" {
+		c["codeUrl"] = xmlRe.CodeURL
+	}
 
 	return c, nil
 }
