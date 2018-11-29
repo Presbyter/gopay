@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"encoding/json"
+
 	"github.com/Presbyter/gopay/client"
 	"github.com/Presbyter/gopay/common"
 	"github.com/Presbyter/gopay/util"
@@ -132,7 +133,7 @@ func WeChatWebCallback(w http.ResponseWriter, r *http.Request) (*common.WeChatPa
 		signData = append(signData, fmt.Sprintf("%v=%v", k, v))
 	}
 
-	key := client.DefaultWechatAppClient().Key
+	key := client.DefaultWechatWebClient().Key
 
 	mySign, err := client.WechatGenSign(key, m)
 	if err != nil {
