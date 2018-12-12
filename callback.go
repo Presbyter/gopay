@@ -11,9 +11,9 @@ import (
 
 	"encoding/json"
 
-	"github.com/Presbyter/gopay/client"
-	"github.com/Presbyter/gopay/common"
-	"github.com/Presbyter/gopay/util"
+	"gopay/client"
+	"gopay/common"
+	"gopay/util"
 )
 
 func AliWebCallback(w http.ResponseWriter, r *http.Request) (*common.AliWebPayResult, error) {

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/Presbyter/gopay/common"
-	"github.com/Presbyter/gopay/util"
+	"gopay/common"
+	"gopay/util"
 )
 
 var defaultWechatWebClient *WechatWebClient

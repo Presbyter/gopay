@@ -10,8 +10,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/Presbyter/gopay/common"
-	"github.com/Presbyter/gopay/util"
+	"gopay/common"
+	"gopay/util"
+
 	"github.com/shopspring/decimal"
 )
 
