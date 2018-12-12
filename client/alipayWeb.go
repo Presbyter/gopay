@@ -12,7 +12,7 @@ import (
 	"sort"
 	"strings"
 
-	"gopay/common"
+	"github.com/Presbyter/gopay/common"
 )
 
 var aliWebClient *AliWebClient

@@ -5,11 +5,12 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
-	"gopay/client"
-	"gopay/common"
-	"gopay/constant"
 	"net/http"
 	"testing"
+
+	"github.com/Presbyter/gopay/client"
+	"github.com/Presbyter/gopay/common"
+	"github.com/Presbyter/gopay/constant"
 )
 
 func TestPay(t *testing.T) {
@@ -66,7 +67,7 @@ xxxxxxxx
 		AppID:      "xxxxxxxxxxxx",
 		PrivateKey: privateKey.(*rsa.PrivateKey),
 		PublicKey:  publicKey.(*rsa.PublicKey),
-		// PayURL:     "https://mapi.alipay.com/gateway.do",
+		PayURL:     "https://mapi.alipay.com/gateway.do",
 	})
 }
 

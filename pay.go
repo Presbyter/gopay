@@ -2,9 +2,10 @@ package gopay
 
 import (
 	"errors"
-	"gopay/client"
-	"gopay/common"
-	"gopay/constant"
+
+	"github.com/Presbyter/gopay/client"
+	"github.com/Presbyter/gopay/common"
+	"github.com/Presbyter/gopay/constant"
 )
 
 // 用户下单支付接口
